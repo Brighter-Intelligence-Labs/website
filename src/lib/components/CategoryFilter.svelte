@@ -37,7 +37,8 @@
 		color: var(--color-muted);
 		background: transparent;
 		border: 1.5px solid var(--color-border);
-		border-radius: 100px;
+		border-radius: 2px;
+		transform: skewX(-8deg);
 		cursor: pointer;
 		transition: all 0.15s ease;
 	}

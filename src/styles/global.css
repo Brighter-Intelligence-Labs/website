@@ -2,8 +2,8 @@
 	--color-bg: #FAFAFA;
 	--color-text: #1A1A1A;
 	--color-text-secondary: #4B5563;
-	--color-accent: #0D9488;
-	--color-accent-hover: #0B7C72;
+	--color-accent: #0A756B;
+	--color-accent-hover: #086058;
 	--color-accent-light: #CCFBF1;
 	--color-muted: #6B7280;
 	--color-surface: #FFFFFF;
@@ -208,7 +208,12 @@ pre code {
 	font-weight: 500;
 	color: var(--color-accent);
 	background: var(--color-accent-light);
-	border-radius: 100px;
+	border-radius: 2px;
+	transform: skewX(-8deg);
+}
+
+.tag > * {
+	transform: skewX(8deg);
 }
 
 @media (max-width: 768px) {
