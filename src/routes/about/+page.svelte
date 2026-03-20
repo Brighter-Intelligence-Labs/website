@@ -9,20 +9,12 @@
 
 <section class="section">
 	<div class="container">
-		<div class="about-hero">
-			<div class="about-content">
-				<h1>We build AI systems that run real business operations</h1>
-				<p class="about-lead">
-					Brighter Intelligence Labs is a systems engineering company. We design, deploy, and operate bespoke AI agent systems for businesses that need more than chatbots and demos.
-				</p>
-			</div>
-			<div class="about-image">
-				<img
-					src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=600&q=80"
-					alt="Team collaborating in a modern workspace"
-					loading="lazy"
-				/>
-			</div>
+		<div class="about-header">
+			<div class="eyebrow">About Us</div>
+			<h1>We build AI systems that run real business operations</h1>
+			<p class="about-lead">
+				Brighter Intelligence Labs is a systems engineering company. We design, deploy, and operate bespoke AI agent systems for businesses that need more than chatbots and demos.
+			</p>
 		</div>
 	</div>
 </section>
@@ -30,6 +22,7 @@
 <section class="section section-alt">
 	<div class="container">
 		<div class="philosophy prose">
+			<div class="eyebrow">Philosophy</div>
 			<h2>Our philosophy</h2>
 			<p>
 				Most companies building with AI are stuck in a loop: impressive demos that never make it to production. The gap isn't capability — it's infrastructure. Orchestration. Cost control. Governance. The unglamorous engineering that turns a prototype into a system.
@@ -48,39 +41,29 @@
 			<p>
 				Over time, this platform will evolve. But right now, our focus is simple: build outstanding systems for our clients, refine the patterns, and share what we learn through our writing.
 			</p>
-
-			<h2>Our approach</h2>
 		</div>
 
-		<div class="values-grid">
-			<div class="value">
-				<h3>Systems over features</h3>
-				<p>We think in systems, not features. A feature solves one problem. A system runs your business process end-to-end, adapts when requirements change, and scales when volume grows.</p>
+		<div class="values-section">
+			<div class="eyebrow">Our approach</div>
+			<h2>Core values</h2>
+			<div class="values-grid">
+				<div class="value">
+					<h4>Systems over features</h4>
+					<p>We think in systems, not features. A feature solves one problem. A system runs your business process end-to-end, adapts when requirements change, and scales when volume grows.</p>
+				</div>
+				<div class="value">
+					<h4>Transparency over mystique</h4>
+					<p>No black boxes. No proprietary magic. We show you exactly how your system works, what it costs, and why it makes the decisions it does.</p>
+				</div>
+				<div class="value">
+					<h4>Production over prototype</h4>
+					<p>We don't build demos. Everything we deploy is designed to run under load, with real data, handling edge cases that demos never encounter.</p>
+				</div>
+				<div class="value">
+					<h4>Pragmatism over hype</h4>
+					<p>We use the right tool for the job, not the trendiest. Sometimes that's a frontier model. Sometimes it's a regex. We optimise for outcomes, not impressiveness.</p>
+				</div>
 			</div>
-			<div class="value">
-				<h3>Transparency over mystique</h3>
-				<p>No black boxes. No proprietary magic. We show you exactly how your system works, what it costs, and why it makes the decisions it does.</p>
-			</div>
-			<div class="value">
-				<h3>Production over prototype</h3>
-				<p>We don't build demos. Everything we deploy is designed to run under load, with real data, handling edge cases that demos never encounter.</p>
-			</div>
-			<div class="value">
-				<h3>Pragmatism over hype</h3>
-				<p>We use the right tool for the job, not the trendiest. Sometimes that's a frontier model. Sometimes it's a regex. We optimise for outcomes, not impressiveness.</p>
-			</div>
-		</div>
-	</div>
-</section>
-
-<section class="section">
-	<div class="container">
-		<div class="about-image-full">
-			<img
-				src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=1200&q=80"
-				alt="Modern office environment with natural light"
-				loading="lazy"
-			/>
 		</div>
 	</div>
 </section>
@@ -91,72 +74,63 @@
 />
 
 <style>
-	.about-hero {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: var(--space-xl);
-		align-items: center;
+	.about-header {
+		max-width: 640px;
 	}
 
-	.about-content h1 {
-		margin-bottom: var(--space-md);
+	.about-header h1 {
+		margin-bottom: var(--space-6);
 	}
 
 	.about-lead {
-		font-size: var(--text-lg);
-		color: var(--color-text-secondary);
-		line-height: 1.6;
-	}
-
-	.about-image {
-		border-radius: var(--radius-lg);
-		overflow: hidden;
-	}
-
-	.about-image img {
-		width: 100%;
-		height: 400px;
-		object-fit: cover;
+		font-size: var(--text-base);
+		color: var(--text-secondary);
+		font-weight: 300;
+		line-height: 1.7;
+		max-width: 520px;
 	}
 
 	.philosophy {
-		margin-bottom: var(--space-xl);
+		margin-bottom: var(--space-16);
+	}
+
+	.values-section {
+		margin-bottom: var(--space-4);
+	}
+
+	.values-section h2 {
+		margin-bottom: var(--space-10);
 	}
 
 	.values-grid {
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
-		gap: var(--space-lg);
-		max-width: var(--max-width-page);
+		gap: var(--space-4);
 	}
 
-	.value h3 {
-		font-size: var(--text-lg);
-		margin-bottom: var(--space-xs);
+	.value {
+		background: var(--surface);
+		border: 1px solid var(--border);
+		border-radius: var(--radius-lg);
+		padding: var(--space-6);
+	}
+
+	.value h4 {
+		font-size: var(--text-base);
+		font-weight: 500;
+		letter-spacing: -0.01em;
+		color: var(--text-primary);
+		margin-bottom: var(--space-2);
 	}
 
 	.value p {
-		color: var(--color-text-secondary);
+		font-size: var(--text-sm);
+		color: var(--text-secondary);
+		font-weight: 300;
 		line-height: 1.6;
 	}
 
-	.about-image-full {
-		border-radius: var(--radius-lg);
-		overflow: hidden;
-		max-height: 400px;
-	}
-
-	.about-image-full img {
-		width: 100%;
-		height: 400px;
-		object-fit: cover;
-	}
-
-	@media (max-width: 768px) {
-		.about-hero {
-			grid-template-columns: 1fr;
-		}
-
+	@media (max-width: 640px) {
 		.values-grid {
 			grid-template-columns: 1fr;
 		}

@@ -18,8 +18,8 @@
 
 <article class="article">
 	<div class="container">
-		<header class="article-header prose">
-			<span class="tag">{data.meta.category}</span>
+		<header class="article-header">
+			<div class="tag">{data.meta.category}</div>
 			<h1>{data.meta.title}</h1>
 			<div class="article-meta">
 				<span>{data.meta.author}</span>
@@ -37,28 +37,33 @@
 
 <style>
 	.article {
-		padding: var(--space-xl) 0 var(--space-3xl);
+		padding: var(--section-padding-y) 0;
 	}
 
 	.article-header {
-		margin-bottom: var(--space-xl);
+		max-width: var(--max-width-prose);
+		margin-bottom: var(--space-12);
 	}
 
 	.article-header h1 {
-		margin-top: var(--space-sm);
-		margin-bottom: var(--space-md);
-		font-size: var(--text-3xl);
+		margin-top: var(--space-3);
+		margin-bottom: var(--space-4);
 	}
 
 	.article-meta {
 		display: flex;
 		align-items: center;
-		gap: 0.5rem;
-		color: var(--color-muted);
-		font-size: var(--text-sm);
+		gap: var(--space-2);
+		color: var(--text-muted);
+		font-size: var(--text-xs);
+		font-weight: 400;
 	}
 
 	.meta-sep {
-		color: var(--color-border);
+		color: var(--border);
+	}
+
+	.article-body {
+		max-width: var(--max-width-prose);
 	}
 </style>

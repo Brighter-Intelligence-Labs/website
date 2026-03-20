@@ -7,6 +7,7 @@
 	<div class="container">
 		<div class="contact-grid">
 			<div class="contact-content">
+				<div class="eyebrow">Get in touch</div>
 				<h1>Let's talk</h1>
 				<p class="contact-lead">
 					Book a free 30-minute discovery call. We'll discuss your workflows, challenges, and whether a bespoke AI system makes sense for your business.
@@ -45,7 +46,7 @@
 						<label for="message">Tell us about your project</label>
 						<textarea id="message" name="message" rows="5" placeholder="What workflows are you looking to automate? What challenges are you facing?"></textarea>
 					</div>
-					<button type="submit" class="btn btn-primary">Send Message</button>
+					<button type="submit" class="btn-primary">Send Message</button>
 				</form>
 			</div>
 		</div>
@@ -56,30 +57,33 @@
 	.contact-grid {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
-		gap: var(--space-2xl);
+		gap: var(--space-16);
 		align-items: start;
 	}
 
 	.contact-content h1 {
-		margin-bottom: var(--space-md);
+		margin-bottom: var(--space-4);
 	}
 
 	.contact-lead {
-		font-size: var(--text-lg);
-		color: var(--color-text-secondary);
-		line-height: 1.6;
-		margin-bottom: var(--space-sm);
+		font-size: var(--text-base);
+		color: var(--text-secondary);
+		font-weight: 300;
+		line-height: 1.7;
+		margin-bottom: var(--space-3);
+		max-width: 480px;
 	}
 
 	.contact-note {
-		color: var(--color-muted);
+		color: var(--text-muted);
 		font-size: var(--text-sm);
-		margin-bottom: var(--space-xl);
+		font-weight: 300;
+		margin-bottom: var(--space-10);
 	}
 
 	.contact-details h3 {
 		font-size: var(--text-lg);
-		margin-bottom: var(--space-sm);
+		margin-bottom: var(--space-4);
 	}
 
 	.contact-details ul {
@@ -88,61 +92,62 @@
 	}
 
 	.contact-details li {
-		padding: 0.4rem 0;
-		padding-left: 1.5rem;
+		padding: var(--space-2) 0;
+		padding-left: var(--space-5);
 		position: relative;
-		color: var(--color-text-secondary);
+		color: var(--text-secondary);
 		font-size: var(--text-sm);
+		font-weight: 300;
 	}
 
 	.contact-details li::before {
 		content: '';
 		position: absolute;
 		left: 0;
-		top: 0.75rem;
-		width: 8px;
-		height: 8px;
-		background: var(--color-accent);
+		top: 13px;
+		width: 6px;
+		height: 6px;
+		background: var(--accent);
 		border-radius: 50%;
 	}
 
 	.contact-form {
-		background: var(--color-surface);
-		border: 1px solid var(--color-border);
+		background: var(--surface);
+		border: 1px solid var(--border);
 		border-radius: var(--radius-lg);
-		padding: var(--space-lg);
+		padding: var(--space-8);
 	}
 
 	.form-group {
-		margin-bottom: var(--space-md);
+		margin-bottom: var(--space-5);
 	}
 
 	label {
 		display: block;
-		font-family: var(--font-heading);
+		font-family: var(--font-body);
 		font-size: var(--text-sm);
-		font-weight: 600;
-		margin-bottom: 0.375rem;
-		color: var(--color-text);
+		font-weight: 500;
+		margin-bottom: var(--space-2);
+		color: var(--text-primary);
 	}
 
 	input,
 	textarea {
 		width: 100%;
-		padding: 0.75rem;
+		padding: var(--space-3) var(--space-4);
 		font-family: var(--font-body);
 		font-size: var(--text-base);
-		border: 1.5px solid var(--color-border);
+		border: 1px solid var(--border);
 		border-radius: var(--radius);
-		background: var(--color-bg);
-		color: var(--color-text);
+		background: var(--bg);
+		color: var(--text-primary);
 		transition: border-color 0.15s ease;
 	}
 
 	input:focus,
 	textarea:focus {
 		outline: none;
-		border-color: var(--color-accent);
+		border-color: var(--text-secondary);
 	}
 
 	textarea {

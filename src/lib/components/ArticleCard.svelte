@@ -1,69 +1,69 @@
 <script>
 	let { title, excerpt, category, date, readTime, slug } = $props();
 
-	const categorySlug = category.toLowerCase().replace(/\s+&\s+/g, '-').replace(/\s+/g, '-');
 	const formattedDate = new Date(date).toLocaleDateString('en-GB', {
 		day: 'numeric',
-		month: 'long',
+		month: 'short',
 		year: 'numeric'
 	});
 </script>
 
-<a href="/insights/{slug}" class="article-card">
-	<div class="article-card-meta">
-		<span class="tag">{category}</span>
-		<span class="article-date">{formattedDate}</span>
+<a href="/insights/{slug}" class="insight-card">
+	<div class="insight-meta">
+		<span class="insight-tag">{category}</span>
+		<span class="insight-date">{formattedDate}</span>
 	</div>
-	<h3>{title}</h3>
-	<p>{excerpt}</p>
-	<span class="article-read-time">{readTime} read</span>
+	<h3 class="insight-title">{title}</h3>
+	<span class="insight-read">{readTime} read</span>
 </a>
 
 <style>
-	.article-card {
-		display: block;
-		padding: var(--space-lg) 0;
-		border-bottom: 1px solid var(--color-border);
+	.insight-card {
+		background: var(--surface);
+		border: 1px solid var(--border);
+		border-radius: var(--radius-lg);
+		padding: var(--space-6);
 		text-decoration: none;
-		color: var(--color-text);
-		transition: opacity 0.15s ease;
+		display: block;
+		transition: box-shadow 0.2s ease, transform 0.2s ease;
 	}
 
-	.article-card:hover {
-		color: var(--color-text);
+	.insight-card:hover {
+		box-shadow: var(--shadow);
+		transform: translateY(-2px);
 	}
 
-	.article-card:hover h3 {
-		color: var(--color-accent);
-	}
-
-	.article-card-meta {
+	.insight-meta {
 		display: flex;
 		align-items: center;
-		gap: var(--space-sm);
-		margin-bottom: var(--space-xs);
+		gap: var(--space-3);
+		margin-bottom: var(--space-4);
 	}
 
-	.article-date {
-		font-size: var(--text-sm);
-		color: var(--color-muted);
+	.insight-tag {
+		font-size: 10px;
+		font-weight: 600;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		color: var(--accent);
 	}
 
-	h3 {
-		font-size: var(--text-xl);
-		margin-bottom: var(--space-xs);
-		transition: color 0.15s ease;
+	.insight-date {
+		font-size: var(--text-xs);
+		color: var(--text-muted);
 	}
 
-	p {
-		color: var(--color-text-secondary);
+	.insight-title {
 		font-size: var(--text-base);
-		line-height: 1.6;
-		margin-bottom: var(--space-xs);
+		font-weight: 500;
+		color: var(--text-primary);
+		line-height: 1.35;
+		margin-bottom: var(--space-3);
+		letter-spacing: -0.01em;
 	}
 
-	.article-read-time {
-		font-size: var(--text-sm);
-		color: var(--color-muted);
+	.insight-read {
+		font-size: var(--text-xs);
+		color: var(--text-muted);
 	}
 </style>

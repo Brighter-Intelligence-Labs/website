@@ -1,56 +1,72 @@
 <script>
-	let { title, description, icon = '', href = '#' } = $props();
+	let { title, description, tag = '', href = '#' } = $props();
 </script>
 
-<a {href} class="service-card">
-	{#if icon}
-		<span class="service-icon">{icon}</span>
+<div class="service-card">
+	{#if tag}
+		<div class="service-tag">{tag}</div>
 	{/if}
-	<h3>{title}</h3>
-	<p>{description}</p>
-	<span class="service-link">Learn more &rarr;</span>
-</a>
+	<h3 class="service-title">{title}</h3>
+	<p class="service-body">{description}</p>
+	<a {href} class="service-link">Learn more</a>
+</div>
 
 <style>
 	.service-card {
-		display: block;
-		background: var(--color-surface);
-		border: 1px solid var(--color-border);
+		background: var(--surface);
+		border: 1px solid var(--border);
 		border-radius: var(--radius-lg);
-		padding: var(--space-lg);
-		text-decoration: none;
-		color: var(--color-text);
-		transition: border-color 0.2s ease, box-shadow 0.2s ease;
+		padding: var(--space-8) var(--space-6);
+		transition: box-shadow 0.2s ease, border-color 0.2s ease;
 	}
 
 	.service-card:hover {
-		border-color: var(--color-accent);
-		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-		color: var(--color-text);
+		box-shadow: var(--shadow);
+		border-color: var(--border-light);
 	}
 
-	.service-icon {
-		display: block;
-		font-size: 2rem;
-		margin-bottom: var(--space-sm);
+	.service-tag {
+		font-size: 10px;
+		font-weight: 600;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: var(--accent);
+		margin-bottom: var(--space-4);
 	}
 
-	h3 {
-		font-size: var(--text-xl);
-		margin-bottom: var(--space-xs);
+	.service-title {
+		font-size: var(--text-lg);
+		font-weight: 500;
+		letter-spacing: -0.01em;
+		color: var(--text-primary);
+		margin-bottom: var(--space-3);
+		line-height: 1.25;
 	}
 
-	p {
-		color: var(--color-text-secondary);
+	.service-body {
 		font-size: var(--text-sm);
-		line-height: 1.6;
-		margin-bottom: var(--space-md);
+		color: var(--text-secondary);
+		font-weight: 300;
+		line-height: 1.65;
+		margin-bottom: var(--space-5);
 	}
 
 	.service-link {
-		font-family: var(--font-heading);
 		font-size: var(--text-sm);
-		font-weight: 600;
-		color: var(--color-accent);
+		font-weight: 500;
+		color: var(--text-primary);
+		text-decoration: none;
+		display: inline-flex;
+		align-items: center;
+		gap: var(--space-2);
+	}
+
+	.service-link::after {
+		content: '\2192';
+		font-weight: 300;
+	}
+
+	.service-link:hover {
+		color: var(--text-primary);
 	}
 </style>

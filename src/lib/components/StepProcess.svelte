@@ -1,55 +1,104 @@
 <script>
-	let { steps } = $props();
+	let { steps, label = '' } = $props();
 </script>
 
-<div class="steps">
-	{#each steps as step, i}
-		<div class="step">
-			<div class="step-number">{i + 1}</div>
-			<div class="step-content">
-				<h4>{step.title}</h4>
-				<p>{step.description}</p>
+<div class="pipeline-wrap">
+	{#if label}
+		<div class="pipeline-label">{label}</div>
+	{/if}
+	<div class="pipeline">
+		{#each steps as step, i}
+			<div class="step">
+				<div class="step-inner">
+					<div class="step-num">{String(i + 1).padStart(2, '0')}</div>
+					<div class="step-name">{step.title}</div>
+				</div>
+				{#if i < steps.length - 1}
+					<div class="step-arrow">&rarr;</div>
+				{/if}
 			</div>
-		</div>
-	{/each}
+		{/each}
+	</div>
 </div>
 
 <style>
-	.steps {
+	.pipeline-wrap {
+		background: var(--surface-2);
+		border: 1px solid var(--border);
+		border-radius: var(--radius-lg);
+		padding: var(--space-8);
+	}
+
+	.pipeline-label {
+		font-size: var(--text-xs);
+		font-weight: 600;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: var(--text-muted);
+		margin-bottom: var(--space-5);
+	}
+
+	.pipeline {
 		display: flex;
-		flex-direction: column;
-		gap: var(--space-md);
+		align-items: stretch;
 	}
 
 	.step {
-		display: flex;
-		gap: var(--space-md);
-		align-items: flex-start;
-	}
-
-	.step-number {
-		flex-shrink: 0;
-		width: 40px;
-		height: 40px;
+		flex: 1;
 		display: flex;
 		align-items: center;
-		justify-content: center;
-		font-family: var(--font-heading);
-		font-weight: 700;
-		font-size: var(--text-sm);
-		color: var(--color-accent);
-		background: var(--color-accent-light);
-		border-radius: 50%;
 	}
 
-	.step-content h4 {
-		font-size: var(--text-base);
-		margin-bottom: 0.25rem;
+	.step-inner {
+		flex: 1;
+		background: var(--surface);
+		border: 1px solid var(--border);
+		border-radius: var(--radius);
+		padding: var(--space-4);
 	}
 
-	.step-content p {
-		color: var(--color-text-secondary);
+	.step-num {
+		font-size: 10px;
+		font-weight: 600;
+		letter-spacing: 0.1em;
+		color: var(--accent);
+		text-transform: uppercase;
+		margin-bottom: var(--space-1);
+	}
+
+	.step-name {
 		font-size: var(--text-sm);
-		line-height: 1.6;
+		font-weight: 500;
+		color: var(--text-primary);
+	}
+
+	.step-arrow {
+		width: 28px;
+		flex-shrink: 0;
+		text-align: center;
+		color: var(--border);
+		font-size: 14px;
+	}
+
+	@media (max-width: 640px) {
+		.pipeline {
+			flex-direction: column;
+			gap: var(--space-2);
+		}
+
+		.step {
+			flex-direction: column;
+		}
+
+		.step-inner {
+			width: 100%;
+		}
+
+		.step-arrow {
+			width: auto;
+			height: 24px;
+			line-height: 24px;
+			transform: rotate(90deg);
+		}
 	}
 </style>

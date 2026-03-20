@@ -24,32 +24,32 @@
 <style>
 	.filter-bar {
 		display: flex;
-		gap: 0.5rem;
+		gap: var(--space-2);
 		flex-wrap: wrap;
-		margin-bottom: var(--space-lg);
+		margin-bottom: var(--space-8);
 	}
 
 	.filter-tag {
-		padding: 0.375rem 1rem;
-		font-family: var(--font-heading);
-		font-size: var(--text-sm);
+		padding: var(--space-2) var(--space-4);
+		font-family: var(--font-body);
+		font-size: var(--text-xs);
 		font-weight: 500;
-		color: var(--color-muted);
+		color: var(--text-muted);
 		background: transparent;
-		border: 1.5px solid var(--color-border);
-		border-radius: 100px;
+		border: 1px solid var(--border);
+		border-radius: var(--radius-sm);
 		cursor: pointer;
 		transition: all 0.15s ease;
 	}
 
 	.filter-tag:hover {
-		border-color: var(--color-accent);
-		color: var(--color-accent);
+		border-color: var(--text-secondary);
+		color: var(--text-secondary);
 	}
 
 	.filter-tag.active {
-		background: var(--color-accent);
-		border-color: var(--color-accent);
-		color: white;
+		background: var(--text-primary);
+		border-color: var(--text-primary);
+		color: var(--surface);
 	}
 </style>

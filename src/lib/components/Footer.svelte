@@ -1,106 +1,110 @@
 <footer class="footer">
-	<div class="container">
-		<div class="footer-grid">
-			<div class="footer-brand">
-				<p class="footer-logo">Brighter Intelligence Labs</p>
-				<p class="footer-tagline">We design and deploy bespoke AI systems that run real business workflows.</p>
-			</div>
-			<div class="footer-col">
-				<h4>Company</h4>
-				<a href="/about">About</a>
-				<a href="/systems">Systems</a>
-				<a href="/contact">Contact</a>
-			</div>
-			<div class="footer-col">
-				<h4>Insights</h4>
-				<a href="/insights">All Articles</a>
-				<a href="/insights?category=systems-thinking">Systems Thinking</a>
-				<a href="/insights?category=agent-design">Agent Design</a>
-				<a href="/insights?category=cost-governance">Cost & Governance</a>
-			</div>
-			<div class="footer-col">
-				<h4>Connect</h4>
-				<a href="/contact">Book a Discovery Call</a>
-			</div>
+	<div class="footer-inner">
+		<div class="footer-brand-col">
+			<div class="footer-brand">Brighter Intelligence Labs</div>
+			<div class="footer-desc">We design and deploy bespoke AI systems that run real business workflows.</div>
 		</div>
-		<div class="footer-bottom">
-			<p>&copy; {new Date().getFullYear()} Brighter Intelligence Labs. All rights reserved.</p>
+		<div class="footer-col">
+			<div class="footer-col-title">Company</div>
+			<a class="footer-link" href="/about">About</a>
+			<a class="footer-link" href="/systems">Systems</a>
+			<a class="footer-link" href="/contact">Contact</a>
 		</div>
+		<div class="footer-col">
+			<div class="footer-col-title">Insights</div>
+			<a class="footer-link" href="/insights">All Articles</a>
+			<a class="footer-link" href="/insights?category=systems-thinking">Systems Thinking</a>
+			<a class="footer-link" href="/insights?category=agent-design">Agent Design</a>
+			<a class="footer-link" href="/insights?category=cost-governance">Cost & Governance</a>
+		</div>
+		<div class="footer-col">
+			<div class="footer-col-title">Connect</div>
+			<a class="footer-link" href="/contact">Book a Discovery Call</a>
+		</div>
+	</div>
+	<div class="footer-bottom">
+		<p>&copy; {new Date().getFullYear()} Brighter Intelligence Labs. All rights reserved.</p>
 	</div>
 </footer>
 
 <style>
 	.footer {
-		background: var(--color-text);
-		color: #D1D5DB;
-		padding: var(--space-2xl) 0 var(--space-lg);
+		background: var(--black);
+		border-top: 1px solid #222;
 	}
 
-	.footer-grid {
+	.footer-inner {
+		max-width: var(--max-width-page);
+		margin: 0 auto;
+		padding: var(--space-12) var(--section-padding-x);
 		display: grid;
 		grid-template-columns: 2fr 1fr 1fr 1fr;
-		gap: var(--space-xl);
-		margin-bottom: var(--space-xl);
+		gap: var(--space-8);
 	}
 
-	.footer-logo {
-		font-family: var(--font-heading);
-		font-weight: 700;
-		font-size: 1.125rem;
-		color: white;
-		margin-bottom: var(--space-sm);
-	}
-
-	.footer-tagline {
-		font-size: var(--text-sm);
-		line-height: 1.6;
-		max-width: 300px;
-	}
-
-	.footer-col h4 {
-		font-family: var(--font-heading);
+	.footer-brand {
 		font-size: var(--text-sm);
 		font-weight: 600;
-		color: white;
-		margin-bottom: var(--space-sm);
+		color: var(--white);
+		margin-bottom: var(--space-3);
+		letter-spacing: -0.01em;
 	}
 
-	.footer-col a {
+	.footer-desc {
+		font-size: var(--text-xs);
+		color: rgba(250, 249, 247, 0.35);
+		line-height: 1.6;
+		font-weight: 300;
+	}
+
+	.footer-col-title {
+		font-size: var(--text-xs);
+		font-weight: 600;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: rgba(250, 249, 247, 0.35);
+		margin-bottom: var(--space-4);
+	}
+
+	.footer-link {
 		display: block;
-		font-size: var(--text-sm);
-		color: #9CA3AF;
+		font-size: var(--text-xs);
+		color: rgba(250, 249, 247, 0.5);
 		text-decoration: none;
-		margin-bottom: 0.5rem;
+		margin-bottom: var(--space-2);
+		font-weight: 300;
 		transition: color 0.15s ease;
 	}
 
-	.footer-col a:hover {
-		color: white;
+	.footer-link:hover {
+		color: var(--white);
 	}
 
 	.footer-bottom {
-		border-top: 1px solid #374151;
-		padding-top: var(--space-md);
+		max-width: var(--max-width-page);
+		margin: 0 auto;
+		padding: var(--space-6) var(--section-padding-x);
+		border-top: 1px solid #222;
 	}
 
 	.footer-bottom p {
-		font-size: var(--text-sm);
-		color: #6B7280;
+		font-size: var(--text-xs);
+		color: rgba(250, 249, 247, 0.25);
+		font-weight: 300;
 	}
 
 	@media (max-width: 768px) {
-		.footer-grid {
+		.footer-inner {
 			grid-template-columns: 1fr 1fr;
-			gap: var(--space-lg);
 		}
 
-		.footer-brand {
+		.footer-brand-col {
 			grid-column: 1 / -1;
 		}
 	}
 
 	@media (max-width: 480px) {
-		.footer-grid {
+		.footer-inner {
 			grid-template-columns: 1fr;
 		}
 	}
