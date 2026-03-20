@@ -51,7 +51,7 @@
 	}
 
 	.logo {
-		font-family: var(--font-heading);
+		font-family: var(--font-ui);
 		font-size: 1.125rem;
 		font-weight: 700;
 		color: var(--color-text);
