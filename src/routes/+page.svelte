@@ -3,6 +3,7 @@
 	import ServiceCard from '$lib/components/ServiceCard.svelte';
 	import ArticleCard from '$lib/components/ArticleCard.svelte';
 	import CtaBlock from '$lib/components/CtaBlock.svelte';
+	import ChatContainer from '$lib/components/chat/ChatContainer.svelte';
 
 	let { data } = $props();
 </script>
@@ -15,6 +16,17 @@
 </svelte:head>
 
 <Hero />
+
+<!-- Chat Section -->
+<section class="section section-alt">
+	<div class="container">
+		<div class="chat-intro">
+			<h2>Talk to our AI assistant</h2>
+			<p>Get instant answers about AI systems, our approach, and how we work with clients.</p>
+		</div>
+		<ChatContainer />
+	</div>
+</section>
 
 <!-- Problem Section -->
 <section class="section">
@@ -118,6 +130,22 @@
 <CtaBlock />
 
 <style>
+	.chat-intro {
+		text-align: center;
+		margin-bottom: var(--space-6);
+	}
+
+	.chat-intro h2 {
+		font-family: var(--font-display);
+		font-size: var(--text-3xl);
+		margin-bottom: var(--space-2);
+	}
+
+	.chat-intro p {
+		color: var(--text-secondary);
+		font-family: var(--font-body);
+	}
+
 	.problem-body {
 		max-width: 640px;
 		margin-top: var(--space-6);

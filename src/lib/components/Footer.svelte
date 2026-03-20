@@ -1,3 +1,7 @@
+<script>
+	import SubscribeForm from './SubscribeForm.svelte';
+</script>
+
 <footer class="footer">
 	<div class="footer-inner">
 		<div class="footer-brand-col">
@@ -20,6 +24,10 @@
 		<div class="footer-col">
 			<div class="footer-col-title">Connect</div>
 			<a class="footer-link" href="/contact">Book a Discovery Call</a>
+		</div>
+		<div class="footer-subscribe">
+			<div class="footer-col-title">Stay in the loop</div>
+			<SubscribeForm />
 		</div>
 	</div>
 	<div class="footer-bottom">
@@ -94,6 +102,13 @@
 		font-size: var(--text-xs);
 		color: rgba(250, 249, 247, 0.25);
 		font-weight: 300;
+	}
+
+	.footer-subscribe {
+		grid-column: 1 / -1;
+		padding-top: var(--space-6);
+		border-top: 1px solid #222;
+		margin-top: var(--space-4);
 	}
 
 	@media (max-width: 768px) {

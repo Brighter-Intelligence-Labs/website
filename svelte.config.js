@@ -12,7 +12,7 @@ const config = {
 		})
 	],
 	kit: {
-		adapter: adapter(),
+		adapter: adapter({ runtime: 'nodejs22.x' }),
 		prerender: {
 			handleMissingId: 'warn',
 			handleHttpError: 'warn'
