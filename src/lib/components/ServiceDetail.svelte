@@ -326,7 +326,7 @@
 	.engage-day.green  { color: var(--green); }
 
 	@media (max-width: 900px) {
-		.sd-grid { grid-template-columns: 1fr; gap: 40px; }
+		.sd-grid { grid-template-columns: 1fr; column-gap: 0; }
 		.pipeline-steps { flex-direction: column; }
 		.ps-arrow { transform: rotate(90deg); width: 100%; height: 16px; }
 	}

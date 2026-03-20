@@ -224,6 +224,7 @@
 	}
 
 	@media (max-width: 900px) {
-		.gap-grid { grid-template-columns: 1fr; gap: 40px; }
+		.gap-grid { grid-template-columns: 1fr; column-gap: 0; }
+		.eyebrow { margin-bottom: 0; }
 	}
 </style>
