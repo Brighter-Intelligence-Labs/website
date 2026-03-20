@@ -68,7 +68,7 @@
 		letter-spacing: -0.01em;
 		color: var(--text-primary);
 		text-decoration: none;
-		border-left: 7px solid var(--black);
+		border-left: 7px solid var(--accent);
 		padding-left: 10px;
 	}
 

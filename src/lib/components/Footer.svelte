@@ -49,7 +49,7 @@
 		color: var(--white);
 		margin-bottom: var(--space-3);
 		letter-spacing: -0.01em;
-		border-left: 7px solid var(--white);
+		border-left: 7px solid var(--accent);
 		padding-left: 10px;
 	}
 
