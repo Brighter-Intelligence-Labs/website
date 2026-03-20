@@ -64,6 +64,50 @@
 	--section-padding-x: clamp(24px, 6vw, 80px);
 }
 
+/* ── Dark mode — system preference ── */
+@media (prefers-color-scheme: dark) {
+	:root:not([data-theme="light"]) {
+		--bg:             #0e0e0f;
+		--surface:        #141415;
+		--surface-2:      #1e1e1f;
+		--border:         rgba(255,255,255,0.07);
+		--border-light:   rgba(255,255,255,0.04);
+		--text-primary:   #f0ece6;
+		--text-secondary: rgba(240,236,230,0.6);
+		--text-muted:     rgba(240,236,230,0.4);
+		--accent-light:   rgba(200,90,42,0.15);
+		--white:          #141415;
+		--black:          #f0ece6;
+		color-scheme: dark;
+	}
+}
+
+/* ── Manual dark override ── */
+:root[data-theme="dark"] {
+	--bg:             #0e0e0f;
+	--surface:        #141415;
+	--surface-2:      #1e1e1f;
+	--border:         rgba(255,255,255,0.07);
+	--border-light:   rgba(255,255,255,0.04);
+	--text-primary:   #f0ece6;
+	--text-secondary: rgba(240,236,230,0.6);
+	--text-muted:     rgba(240,236,230,0.4);
+	--accent-light:   rgba(200,90,42,0.15);
+	--white:          #141415;
+	--black:          #f0ece6;
+	color-scheme: dark;
+}
+
+/* ── Manual light override ── */
+:root[data-theme="light"] {
+	--bg:       #f7f4f0;
+	--surface:  #faf9f7;
+	--border:   #e2ddd8;
+	--text-primary: #1a1a1a;
+	--text-muted:   #9e9892;
+	color-scheme: light;
+}
+
 *,
 *::before,
 *::after {

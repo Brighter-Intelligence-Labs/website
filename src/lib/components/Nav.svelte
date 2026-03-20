@@ -1,4 +1,6 @@
 <script>
+	import ThemeToggle from '$lib/components/ThemeToggle.svelte';
+
 	let scrolled = $state(false);
 	let menuOpen = $state(false);
 
@@ -22,6 +24,7 @@
 			<a href="/systems" class="nav-link" onclick={() => menuOpen = false}>Systems</a>
 			<a href="/about" class="nav-link" onclick={() => menuOpen = false}>About</a>
 		</div>
+		<ThemeToggle />
 		<a href="/contact" class="nav-cta" onclick={() => menuOpen = false}>Book a Call</a>
 	</div>
 </nav>
