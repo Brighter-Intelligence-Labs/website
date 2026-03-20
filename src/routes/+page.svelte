@@ -1,7 +1,9 @@
 <script>
 	import Hero from '$lib/components/Hero.svelte';
-	import ServiceCard from '$lib/components/ServiceCard.svelte';
-	import ArticleCard from '$lib/components/ArticleCard.svelte';
+	import GapSection from '$lib/components/GapSection.svelte';
+	import ServiceCards from '$lib/components/ServiceCards.svelte';
+	import Differentiators from '$lib/components/Differentiators.svelte';
+	import InsightsPreview from '$lib/components/InsightsPreview.svelte';
 	import CtaBlock from '$lib/components/CtaBlock.svelte';
 
 	let { data } = $props();
@@ -15,199 +17,12 @@
 </svelte:head>
 
 <Hero />
+<GapSection />
+<ServiceCards />
+<Differentiators />
 
-<!-- Problem Section -->
-<section class="section">
-	<div class="container">
-		<div class="eyebrow">The Problem</div>
-		<h2>The gap between AI demos and production systems is where most projects fail</h2>
-		<div class="problem-body">
-			<p>
-				Every company is experimenting with AI. Few are deploying it in production. The reason isn't capability — it's infrastructure. Without orchestration, cost control, and governance, AI projects stall between proof-of-concept and real operations.
-			</p>
-			<p>
-				We build the systems layer that makes AI actually work in your business. Not features. Not demos. Production systems that run real workflows, with full visibility into what they're doing and what they cost.
-			</p>
-		</div>
-	</div>
-</section>
-
-<!-- What We Build -->
-<section class="section section-alt">
-	<div class="container">
-		<div class="section-title-block">
-			<div class="eyebrow">What we build</div>
-			<h2>Three ways we help businesses deploy AI that works</h2>
-			<p class="section-subtitle">Each engagement starts with a conversation, not a sales deck. We scope to your workflows and existing stack before recommending an approach.</p>
-		</div>
-		<div class="services-grid">
-			<ServiceCard
-				tag="Core Offering"
-				title="AI Workflow Systems"
-				description="End-to-end agentic workflows for your business processes. Research pipelines, content engines, operational automation — tailored to your domain."
-				href="/systems#workflow-systems"
-			/>
-			<ServiceCard
-				tag="For Teams Running AI"
-				title="Intelligent Operations"
-				description="Cost visibility, governance, audit trails, and kill switches. Know exactly what your AI is doing and what it costs — in real time."
-				href="/systems#intelligent-operations"
-			/>
-			<ServiceCard
-				tag="Advisory"
-				title="Infrastructure Consulting"
-				description="Architecture review and deployment advisory before you build. We've seen what fails in production — review before you commit."
-				href="/systems#consulting"
-			/>
-		</div>
-	</div>
-</section>
-
-<!-- How We're Different -->
-<section class="section">
-	<div class="container">
-		<div class="section-title-block">
-			<div class="eyebrow">Why us</div>
-			<h2>How we're different</h2>
-		</div>
-		<div class="diff-grid">
-			<div class="diff-item">
-				<h4>Infrastructure-level thinking</h4>
-				<p>Most agencies build features. We build the systems that run them. Designed at the orchestration layer, not the feature layer.</p>
-			</div>
-			<div class="diff-item">
-				<h4>Economic routing</h4>
-				<p>Every system has cost control engineered in. Model routing, token budgeting, caching. You know exactly what you're spending and why.</p>
-			</div>
-			<div class="diff-item">
-				<h4>Governance from day one</h4>
-				<p>Audit trails, approval workflows, permission systems, budget ceilings. Not bolted on later — built in from the start.</p>
-			</div>
-			<div class="diff-item">
-				<h4>Production-first</h4>
-				<p>We don't build demos. Everything we deploy is designed to run in production, under load, with real data and real consequences.</p>
-			</div>
-		</div>
-	</div>
-</section>
-
-<!-- Latest Insights -->
 {#if data.articles.length > 0}
-<section class="section section-alt">
-	<div class="container">
-		<div class="section-title-block">
-			<div class="eyebrow">Insights</div>
-			<h2>Latest thinking</h2>
-		</div>
-		<div class="insights-grid">
-			{#each data.articles.slice(0, 3) as article}
-				<ArticleCard
-					title={article.meta.title}
-					excerpt={article.meta.excerpt}
-					category={article.meta.category}
-					date={article.meta.date}
-					readTime={article.meta.readTime}
-					slug={article.meta.slug}
-				/>
-			{/each}
-		</div>
-	</div>
-</section>
+	<InsightsPreview articles={data.articles} />
 {/if}
 
 <CtaBlock />
-
-<style>
-	.problem-body {
-		max-width: 640px;
-		margin-top: var(--space-6);
-	}
-
-	.problem-body p {
-		font-size: var(--text-base);
-		color: var(--text-primary);
-		font-weight: 400;
-		line-height: 1.5;
-		margin-bottom: var(--space-4);
-	}
-
-	.section-title-block {
-		margin-bottom: var(--space-10);
-	}
-
-	.section-title-block h2 {
-		margin-bottom: var(--space-4);
-	}
-
-	.section-subtitle {
-		font-size: var(--text-base);
-		font-weight: 400;
-		color: var(--text-primary);
-		line-height: 1.5;
-		max-width: 520px;
-	}
-
-	.services-grid {
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		gap: var(--space-4);
-	}
-
-	.diff-grid {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		gap: var(--space-4);
-	}
-
-	.diff-item {
-		background: var(--surface);
-		border: 1px solid var(--border);
-		border-radius: var(--radius-lg);
-		padding: var(--space-6);
-	}
-
-	.diff-item h4 {
-		font-size: var(--text-base);
-		font-weight: 500;
-		letter-spacing: -0.01em;
-		color: var(--text-primary);
-		margin-bottom: var(--space-2);
-	}
-
-	.diff-item p {
-		font-size: var(--text-sm);
-		color: var(--text-primary);
-		font-weight: 400;
-		line-height: 1.5;
-	}
-
-	.insights-grid {
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		gap: var(--space-4);
-	}
-
-	@media (max-width: 1024px) {
-		.services-grid {
-			grid-template-columns: repeat(2, 1fr);
-		}
-
-		.insights-grid {
-			grid-template-columns: repeat(2, 1fr);
-		}
-	}
-
-	@media (max-width: 640px) {
-		.services-grid {
-			grid-template-columns: 1fr;
-		}
-
-		.diff-grid {
-			grid-template-columns: 1fr;
-		}
-
-		.insights-grid {
-			grid-template-columns: 1fr;
-		}
-	}
-</style>

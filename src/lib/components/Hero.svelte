@@ -41,8 +41,8 @@
 
 <section class="hero">
 	<div class="hero-inner" bind:this={heroInner}>
+		<div class="hero-eyebrow">{eyebrow}</div>
 		<div class="hero-copy">
-			<div class="hero-eyebrow">{eyebrow}</div>
 			<h1 class="hero-h1">{headline}</h1>
 			<p class="hero-sub">{subline}</p>
 			<div class="hero-actions">
@@ -77,7 +77,8 @@
 		margin: 0 auto;
 		padding: 0 var(--section-padding-x);
 		display: grid;
-		grid-template-columns: 3fr auto 2fr;
+		grid-template-columns: 4.5fr auto 6fr;
+		grid-template-rows: auto 1fr;
 		gap: 0;
 		align-items: start;
 	}
@@ -89,6 +90,8 @@
 		text-transform: uppercase;
 		color: var(--accent);
 		margin-bottom: var(--space-5);
+		grid-column: 1 / -1;
+		grid-row: 1;
 	}
 
 	.hero-h1 {
@@ -111,11 +114,13 @@
 	}
 
 	.hero-copy {
+		grid-row: 2;
 		padding-right: var(--space-16);
 	}
 
 	/* ── Resize handle ────────────────────────────── */
 	.resize-handle {
+		grid-row: 2;
 		width: 24px;
 		margin: 0 -12px;
 		cursor: col-resize;
@@ -161,6 +166,7 @@
 	}
 
 	.hero-anim-wrap {
+		grid-row: 2;
 		align-self: stretch;
 	}
 

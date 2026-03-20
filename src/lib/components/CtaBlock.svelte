@@ -9,9 +9,9 @@
 
 <section class="cta-block">
 	<div class="cta-inner">
-		<div class="cta-copy">
-			<h2 class="cta-title">{headline}</h2>
-			<p class="cta-sub">{subtext}</p>
+		<div>
+			<h2>{headline}</h2>
+			<p>{subtext}</p>
 		</div>
 		<a href={ctaHref} class="btn-cta">{ctaText}</a>
 	</div>
@@ -19,8 +19,8 @@
 
 <style>
 	.cta-block {
-		background: var(--black);
 		padding: var(--section-padding-y) 0;
+		background: var(--black);
 	}
 
 	.cta-inner {
@@ -29,39 +29,42 @@
 		padding: 0 var(--section-padding-x);
 		display: grid;
 		grid-template-columns: 1fr auto;
-		gap: var(--space-16);
+		gap: 48px;
 		align-items: center;
 	}
 
-	.cta-title {
-		font-family: var(--font-display);
-		font-weight: 400;
-		letter-spacing: -0.01em;
-		line-height: 1.15;
+	.cta-inner h2 {
+		font-family: var(--fd);
+		font-size: clamp(24px, 3vw, 34px);
+		font-weight: 300;
+		letter-spacing: -0.02em;
 		color: var(--white);
-		margin-bottom: var(--space-4);
+		margin-bottom: 10px;
 	}
 
-	.cta-sub {
-		font-size: var(--text-base);
-		color: rgba(250, 249, 247, 0.65);
-		font-weight: 400;
-		line-height: 1.5;
+	.cta-inner p {
+		font-size: 14px;
+		font-weight: 300;
+		color: rgba(240,236,230,0.45);
+		line-height: 1.65;
+		max-width: 480px;
 	}
 
 	.btn-cta {
-		font-family: var(--font-body);
-		font-size: var(--text-sm);
+		display: inline-block;
+		font-size: 13px;
 		font-weight: 500;
 		color: var(--black);
 		background: var(--white);
-		padding: var(--space-4) var(--space-8);
-		border-radius: var(--radius-sm);
-		text-decoration: none;
+		padding: 12px 24px;
+		border-radius: 4px;
+		border: none;
+		cursor: pointer;
 		white-space: nowrap;
+		text-decoration: none;
 		letter-spacing: -0.01em;
-		flex-shrink: 0;
-		transition: opacity 0.15s ease;
+		font-family: var(--fb);
+		transition: opacity 0.15s;
 	}
 
 	.btn-cta:hover {
@@ -69,16 +72,7 @@
 		color: var(--black);
 	}
 
-	@media (max-width: 768px) {
-		.cta-inner {
-			grid-template-columns: 1fr;
-			gap: var(--space-8);
-		}
-
-		.btn-cta {
-			display: block;
-			text-align: center;
-			width: 100%;
-		}
+	@media (max-width: 900px) {
+		.cta-inner { grid-template-columns: 1fr; }
 	}
 </style>
