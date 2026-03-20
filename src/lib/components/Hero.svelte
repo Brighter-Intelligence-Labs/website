@@ -40,13 +40,14 @@
 
 <style>
 	.hero {
-		padding: var(--section-padding-y) var(--section-padding-x);
+		padding: var(--section-padding-y) 0;
 		background: var(--surface);
 	}
 
 	.hero-inner {
 		max-width: var(--max-width-page);
 		margin: 0 auto;
+		padding: 0 var(--section-padding-x);
 		display: grid;
 		grid-template-columns: 3fr 2fr;
 		gap: var(--space-16);
@@ -79,6 +80,11 @@
 		display: flex;
 		gap: var(--space-4);
 		align-items: center;
+	}
+
+	.hero-stats {
+		/* Offset to top-align stat block with h1, not the eyebrow above it */
+		padding-top: calc(var(--text-xs) * 1.6 + var(--space-5));
 	}
 
 	.stat-block {

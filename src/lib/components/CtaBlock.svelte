@@ -20,12 +20,13 @@
 <style>
 	.cta-block {
 		background: var(--black);
-		padding: var(--section-padding-y) var(--section-padding-x);
+		padding: var(--section-padding-y) 0;
 	}
 
 	.cta-inner {
 		max-width: var(--max-width-page);
 		margin: 0 auto;
+		padding: 0 var(--section-padding-x);
 		display: grid;
 		grid-template-columns: 1fr auto;
 		gap: var(--space-16);

@@ -43,11 +43,14 @@
 	}
 
 	.footer-brand {
-		font-size: var(--text-sm);
+		font-family: var(--font-ui);
+		font-size: 1.2rem;
 		font-weight: 600;
 		color: var(--white);
 		margin-bottom: var(--space-3);
 		letter-spacing: -0.01em;
+		border-left: 7px solid var(--white);
+		padding-left: 10px;
 	}
 
 	.footer-desc {

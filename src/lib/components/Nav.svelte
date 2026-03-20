@@ -52,20 +52,24 @@
 	}
 
 	.nav-inner {
+		max-width: var(--max-width-page);
+		margin: 0 auto;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		padding: 0 var(--space-10);
+		padding: 0 var(--section-padding-x);
 		height: 60px;
 	}
 
 	.nav-logo {
-		font-family: var(--font-body);
-		font-size: var(--text-sm);
+		font-family: var(--font-ui);
+		font-size: 1.2rem;
 		font-weight: 600;
 		letter-spacing: -0.01em;
 		color: var(--text-primary);
 		text-decoration: none;
+		border-left: 7px solid var(--black);
+		padding-left: 10px;
 	}
 
 	.nav-logo:hover {
@@ -152,6 +156,12 @@
 	}
 
 	@media (max-width: 768px) {
+		.nav-logo {
+			font-size: 1rem;
+			border-left-width: 5px;
+			padding-left: 8px;
+		}
+
 		.menu-toggle {
 			display: flex;
 		}
