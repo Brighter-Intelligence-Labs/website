@@ -1,21 +1,46 @@
 <script>
+	import HeroKanban from '$lib/components/HeroKanban.svelte';
+
 	let {
 		eyebrow = 'Bespoke AI Systems for Business',
 		headline = 'We design and deploy bespoke AI systems that run real business workflows',
 		subline = 'Infrastructure-level thinking with cost control, governance, and observability built in. Not another chatbot — a system engineered for your operations.',
 		ctaText = 'Book a Discovery Call',
-		ctaHref = '/contact',
-		stats = [
-			{ value: '~<em>60</em>%', label: 'Cost reduction vs. single-model routing' },
-			{ value: '<em>100</em>%', label: 'Audit trail coverage from day one' },
-			{ value: '<em>5</em>', label: 'Days typical consulting engagement' },
-			{ value: 'Full<em>.</em>', label: 'Observability built in, not bolted on' }
-		]
+		ctaHref = '/contact'
 	} = $props();
+
+	let heroInner;
+	let dragging = $state(false);
+
+	function onPointerDown(e) {
+		if (window.innerWidth <= 768) return;
+		dragging = true;
+		e.preventDefault();
+		document.body.style.cursor = 'col-resize';
+		document.body.style.userSelect = 'none';
+
+		function onPointerMove(e) {
+			const rect = heroInner.getBoundingClientRect();
+			const x = e.clientX - rect.left;
+			const pct = Math.min(Math.max(x / rect.width * 100, 30), 75);
+			heroInner.style.gridTemplateColumns = `${pct}fr auto ${100 - pct}fr`;
+		}
+
+		function onPointerUp() {
+			dragging = false;
+			document.body.style.cursor = '';
+			document.body.style.userSelect = '';
+			window.removeEventListener('pointermove', onPointerMove);
+			window.removeEventListener('pointerup', onPointerUp);
+		}
+
+		window.addEventListener('pointermove', onPointerMove);
+		window.addEventListener('pointerup', onPointerUp);
+	}
 </script>
 
 <section class="hero">
-	<div class="hero-inner">
+	<div class="hero-inner" bind:this={heroInner}>
 		<div class="hero-copy">
 			<div class="hero-eyebrow">{eyebrow}</div>
 			<h1 class="hero-h1">{headline}</h1>
@@ -25,15 +50,18 @@
 				<a href="/insights" class="btn-ghost">Read Our Insights</a>
 			</div>
 		</div>
-		<div class="hero-stats">
-			<div class="stat-block">
-				{#each stats as stat}
-					<div class="stat">
-						<div class="stat-val">{@html stat.value}</div>
-						<div class="stat-label">{stat.label}</div>
-					</div>
-				{/each}
-			</div>
+		<div
+			class="resize-handle"
+			class:active={dragging}
+			onpointerdown={onPointerDown}
+			role="separator"
+			aria-orientation="vertical"
+			aria-label="Resize hero columns"
+		>
+			<div class="handle-grip"></div>
+		</div>
+		<div class="hero-anim-wrap">
+			<HeroKanban />
 		</div>
 	</div>
 </section>
@@ -49,8 +77,8 @@
 		margin: 0 auto;
 		padding: 0 var(--section-padding-x);
 		display: grid;
-		grid-template-columns: 3fr 2fr;
-		gap: var(--space-16);
+		grid-template-columns: 3fr auto 2fr;
+		gap: 0;
 		align-items: start;
 	}
 
@@ -82,51 +110,76 @@
 		align-items: center;
 	}
 
-	.hero-stats {
-		/* Offset to top-align stat block with h1, not the eyebrow above it */
-		padding-top: calc(var(--text-xs) * 1.6 + var(--space-5));
+	.hero-copy {
+		padding-right: var(--space-16);
 	}
 
-	.stat-block {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 1px;
+	/* ── Resize handle ────────────────────────────── */
+	.resize-handle {
+		width: 24px;
+		margin: 0 -12px;
+		cursor: col-resize;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		align-self: stretch;
+		position: relative;
+		z-index: 3;
+		touch-action: none;
+	}
+
+	.resize-handle::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 50%;
+		width: 1px;
 		background: var(--border);
-		border: 1px solid var(--border);
-		border-radius: var(--radius-lg);
-		overflow: hidden;
+		transition: background 0.15s ease;
 	}
 
-	.stat {
-		background: var(--surface);
-		padding: var(--space-6);
+	.resize-handle:hover::before,
+	.resize-handle.active::before {
+		background: var(--accent);
 	}
 
-	.stat-val {
-		font-size: var(--text-3xl);
-		font-weight: 300;
-		letter-spacing: -0.03em;
-		line-height: 1;
-		margin-bottom: var(--space-2);
-		color: var(--text-primary);
+	.handle-grip {
+		width: 6px;
+		height: 32px;
+		border-radius: 3px;
+		background: var(--border);
+		position: relative;
+		z-index: 1;
+		transition: background 0.15s ease, transform 0.15s ease;
 	}
 
-	.stat-val :global(em) {
-		color: var(--accent);
-		font-style: normal;
+	.resize-handle:hover .handle-grip,
+	.resize-handle.active .handle-grip {
+		background: var(--accent);
+		transform: scaleY(1.2);
 	}
 
-	.stat-label {
-		font-size: var(--text-xs);
-		color: var(--text-muted);
-		line-height: 1.45;
-		font-weight: 400;
+	.hero-anim-wrap {
+		align-self: stretch;
+	}
+
+	.hero-anim-wrap :global(.hero-anim) {
+		height: 100%;
 	}
 
 	@media (max-width: 768px) {
 		.hero-inner {
 			grid-template-columns: 1fr;
 			gap: var(--space-10);
+		}
+
+		.hero-copy {
+			padding-right: 0;
+		}
+
+		.resize-handle {
+			display: none;
 		}
 	}
 </style>
