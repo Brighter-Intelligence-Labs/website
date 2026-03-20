@@ -1,0 +1,219 @@
+:root {
+	--color-bg: #FAFAFA;
+	--color-text: #1A1A1A;
+	--color-text-secondary: #4B5563;
+	--color-accent: #0D9488;
+	--color-accent-hover: #0B7C72;
+	--color-accent-light: #CCFBF1;
+	--color-muted: #6B7280;
+	--color-surface: #FFFFFF;
+	--color-border: #E5E7EB;
+	--color-code-bg: #1E293B;
+
+	--max-width-prose: 720px;
+	--max-width-page: 1200px;
+
+	--font-heading: 'Inter', system-ui, -apple-system, sans-serif;
+	--font-body: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+	--font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+	--text-sm: 0.875rem;
+	--text-base: 1.0625rem;
+	--text-lg: 1.25rem;
+	--text-xl: 1.5rem;
+	--text-2xl: 2rem;
+	--text-3xl: 2.5rem;
+	--text-4xl: 3.25rem;
+
+	--space-xs: 0.5rem;
+	--space-sm: 1rem;
+	--space-md: 1.5rem;
+	--space-lg: 2.5rem;
+	--space-xl: 4rem;
+	--space-2xl: 6rem;
+	--space-3xl: 8rem;
+
+	--radius: 6px;
+	--radius-lg: 12px;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	font-size: 16px;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+body {
+	font-family: var(--font-body);
+	font-size: var(--text-base);
+	line-height: 1.7;
+	color: var(--color-text);
+	background-color: var(--color-bg);
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: var(--font-heading);
+	font-weight: 600;
+	line-height: 1.2;
+	color: var(--color-text);
+	letter-spacing: -0.02em;
+}
+
+h1 { font-size: var(--text-4xl); }
+h2 { font-size: var(--text-3xl); }
+h3 { font-size: var(--text-2xl); }
+h4 { font-size: var(--text-xl); }
+
+a {
+	color: var(--color-accent);
+	text-decoration: none;
+	transition: color 0.15s ease;
+}
+
+a:hover {
+	color: var(--color-accent-hover);
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	display: block;
+}
+
+code {
+	font-family: var(--font-mono);
+	font-size: 0.9em;
+	background: var(--color-border);
+	padding: 0.15em 0.4em;
+	border-radius: 3px;
+}
+
+pre {
+	background: var(--color-code-bg);
+	color: #E2E8F0;
+	padding: var(--space-md);
+	border-radius: var(--radius-lg);
+	overflow-x: auto;
+	line-height: 1.5;
+	margin: var(--space-md) 0;
+}
+
+pre code {
+	background: none;
+	padding: 0;
+	font-size: 0.875rem;
+}
+
+.container {
+	max-width: var(--max-width-page);
+	margin: 0 auto;
+	padding: 0 var(--space-md);
+}
+
+.prose {
+	max-width: var(--max-width-prose);
+	margin: 0 auto;
+}
+
+.prose h2 {
+	margin-top: var(--space-xl);
+	margin-bottom: var(--space-sm);
+	font-size: var(--text-2xl);
+}
+
+.prose h3 {
+	margin-top: var(--space-lg);
+	margin-bottom: var(--space-sm);
+	font-size: var(--text-xl);
+}
+
+.prose p {
+	margin-bottom: var(--space-md);
+}
+
+.prose ul,
+.prose ol {
+	margin-bottom: var(--space-md);
+	padding-left: var(--space-md);
+}
+
+.prose li {
+	margin-bottom: var(--space-xs);
+}
+
+.prose blockquote {
+	border-left: 3px solid var(--color-accent);
+	padding-left: var(--space-md);
+	margin: var(--space-lg) 0;
+	color: var(--color-text-secondary);
+	font-style: italic;
+}
+
+.btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	padding: 0.75rem 1.5rem;
+	font-family: var(--font-heading);
+	font-size: var(--text-sm);
+	font-weight: 600;
+	text-decoration: none;
+	border-radius: var(--radius);
+	border: none;
+	cursor: pointer;
+	transition: all 0.15s ease;
+}
+
+.btn-primary {
+	background: var(--color-accent);
+	color: white;
+}
+
+.btn-primary:hover {
+	background: var(--color-accent-hover);
+	color: white;
+}
+
+.btn-secondary {
+	background: transparent;
+	color: var(--color-accent);
+	border: 1.5px solid var(--color-accent);
+}
+
+.btn-secondary:hover {
+	background: var(--color-accent-light);
+	color: var(--color-accent-hover);
+}
+
+.section {
+	padding: var(--space-3xl) 0;
+}
+
+.section-alt {
+	background: var(--color-surface);
+}
+
+.tag {
+	display: inline-block;
+	padding: 0.25rem 0.75rem;
+	font-size: var(--text-sm);
+	font-weight: 500;
+	color: var(--color-accent);
+	background: var(--color-accent-light);
+	border-radius: 100px;
+}
+
+@media (max-width: 768px) {
+	h1 { font-size: var(--text-3xl); }
+	h2 { font-size: var(--text-2xl); }
+	h3 { font-size: var(--text-xl); }
+	.section { padding: var(--space-2xl) 0; }
+}
