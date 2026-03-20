@@ -125,9 +125,9 @@
 
 	.problem-body p {
 		font-size: var(--text-base);
-		color: var(--text-secondary);
-		font-weight: 300;
-		line-height: 1.7;
+		color: var(--text-primary);
+		font-weight: 400;
+		line-height: 1.5;
 		margin-bottom: var(--space-4);
 	}
 
@@ -141,9 +141,9 @@
 
 	.section-subtitle {
 		font-size: var(--text-base);
-		font-weight: 300;
-		color: var(--text-secondary);
-		line-height: 1.65;
+		font-weight: 400;
+		color: var(--text-primary);
+		line-height: 1.5;
 		max-width: 520px;
 	}
 
@@ -176,9 +176,9 @@
 
 	.diff-item p {
 		font-size: var(--text-sm);
-		color: var(--text-secondary);
-		font-weight: 300;
-		line-height: 1.6;
+		color: var(--text-primary);
+		font-weight: 400;
+		line-height: 1.5;
 	}
 
 	.insights-grid {

@@ -22,7 +22,7 @@
 	/* Type scale */
 	--text-xs:   11px;
 	--text-sm:   13px;
-	--text-base: 15px;
+	--text-base: 17px;
 	--text-lg:   18px;
 	--text-xl:   22px;
 	--text-2xl:  28px;
@@ -81,7 +81,7 @@ html {
 body {
 	font-family: var(--font-body);
 	font-size: var(--text-base);
-	line-height: 1.6;
+	line-height: 1.45;
 	color: var(--text-primary);
 	background: var(--bg);
 }
@@ -181,9 +181,9 @@ pre code {
 
 .prose p {
 	margin-bottom: var(--space-5);
-	color: var(--text-secondary);
-	font-weight: 300;
-	line-height: 1.7;
+	color: var(--text-primary);
+	font-weight: 400;
+	line-height: 1.5;
 }
 
 .prose ul,
@@ -194,8 +194,8 @@ pre code {
 
 .prose li {
 	margin-bottom: var(--space-2);
-	color: var(--text-secondary);
-	font-weight: 300;
+	color: var(--text-primary);
+	font-weight: 400;
 }
 
 .prose blockquote {

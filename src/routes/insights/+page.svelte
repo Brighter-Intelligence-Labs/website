@@ -60,9 +60,9 @@
 
 	.insights-subline {
 		font-size: var(--text-base);
-		color: var(--text-secondary);
-		font-weight: 300;
-		line-height: 1.65;
+		color: var(--text-primary);
+		font-weight: 400;
+		line-height: 1.5;
 		max-width: 520px;
 	}
 

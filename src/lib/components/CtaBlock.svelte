@@ -44,9 +44,9 @@
 
 	.cta-sub {
 		font-size: var(--text-base);
-		color: rgba(250, 249, 247, 0.5);
-		font-weight: 300;
-		line-height: 1.6;
+		color: rgba(250, 249, 247, 0.65);
+		font-weight: 400;
+		line-height: 1.5;
 	}
 
 	.btn-cta {

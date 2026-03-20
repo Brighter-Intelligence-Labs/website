@@ -67,9 +67,9 @@
 
 	.contact-lead {
 		font-size: var(--text-base);
-		color: var(--text-secondary);
-		font-weight: 300;
-		line-height: 1.7;
+		color: var(--text-primary);
+		font-weight: 400;
+		line-height: 1.5;
 		margin-bottom: var(--space-3);
 		max-width: 480px;
 	}
@@ -77,7 +77,7 @@
 	.contact-note {
 		color: var(--text-muted);
 		font-size: var(--text-sm);
-		font-weight: 300;
+		font-weight: 400;
 		margin-bottom: var(--space-10);
 	}
 
@@ -95,9 +95,9 @@
 		padding: var(--space-2) 0;
 		padding-left: var(--space-5);
 		position: relative;
-		color: var(--text-secondary);
+		color: var(--text-primary);
 		font-size: var(--text-sm);
-		font-weight: 300;
+		font-weight: 400;
 	}
 
 	.contact-details li::before {

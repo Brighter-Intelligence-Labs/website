@@ -84,9 +84,9 @@
 
 	.about-lead {
 		font-size: var(--text-base);
-		color: var(--text-secondary);
-		font-weight: 300;
-		line-height: 1.7;
+		color: var(--text-primary);
+		font-weight: 400;
+		line-height: 1.5;
 		max-width: 520px;
 	}
 
@@ -125,9 +125,9 @@
 
 	.value p {
 		font-size: var(--text-sm);
-		color: var(--text-secondary);
-		font-weight: 300;
-		line-height: 1.6;
+		color: var(--text-primary);
+		font-weight: 400;
+		line-height: 1.5;
 	}
 
 	@media (max-width: 640px) {
