@@ -11,7 +11,7 @@
 			<div class="diag-header">
 				<div class="diag-col-label before">Without a system layer</div>
 				<div class="diag-divider"></div>
-				<div class="diag-col-label after">With BI Labs</div>
+				<div class="diag-col-label after">With BI BLADE ©</div>
 			</div>
 			<div class="diag-body">
 				<div class="diag-side">
@@ -197,16 +197,16 @@
 	.badge-queued { color: var(--text-muted); background: var(--surface-2); border: 0.5px solid var(--border); }
 
 	.diag-meta {
-		padding: 10px 16px;
 		border-top: 0.5px solid var(--border);
-		display: flex;
-		justify-content: space-between;
+		display: grid;
+		grid-template-columns: 1fr 1px 1fr;
 		align-items: center;
 	}
 
 	.meta-item {
 		font-size: 10px;
 		color: var(--text-muted);
+		padding: 10px 16px;
 	}
 
 	.meta-item span {
@@ -219,12 +219,19 @@
 
 	.meta-divider {
 		width: 1px;
-		height: 20px;
+		align-self: stretch;
 		background: var(--border);
 	}
 
 	@media (max-width: 900px) {
 		.gap-grid { grid-template-columns: 1fr; column-gap: 0; }
-		.eyebrow { margin-bottom: 0; }
+		.eyebrow { margin-bottom: var(--space-3); }
+		.diagnostic { margin-top: 32px; }
+		.diag-col-label { padding: 10px 10px; font-size: 9px; letter-spacing: 0.06em; }
+		.diag-side { padding: 10px; }
+		.diag-step { gap: 6px; }
+		.step-name { font-size: 10px; }
+		.step-badge { font-size: 8px; padding: 2px 4px; white-space: nowrap; }
+		.meta-item { padding: 8px 10px; }
 	}
 </style>
