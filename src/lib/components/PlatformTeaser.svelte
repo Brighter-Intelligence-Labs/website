@@ -170,6 +170,8 @@
 	}
 
 	@media (max-width: 900px) {
-		.platform-grid { grid-template-columns: 1fr; gap: 40px; }
+		.platform-grid { grid-template-columns: 1fr; column-gap: 0; }
+		.eyebrow { margin-bottom: var(--space-3); }
+		.platform-visual { margin-top: 32px; }
 	}
 </style>

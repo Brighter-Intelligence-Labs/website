@@ -177,7 +177,11 @@
 	@media (max-width: 768px) {
 		.hero-inner {
 			grid-template-columns: 1fr;
-			gap: var(--space-10);
+			grid-template-rows: auto auto;
+		}
+
+		.hero-eyebrow {
+			margin-bottom: var(--space-3);
 		}
 
 		.hero-copy {
@@ -185,6 +189,10 @@
 		}
 
 		.resize-handle {
+			display: none;
+		}
+
+		.hero-anim-wrap {
 			display: none;
 		}
 	}

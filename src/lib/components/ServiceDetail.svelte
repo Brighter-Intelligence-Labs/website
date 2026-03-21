@@ -326,7 +326,9 @@
 	.engage-day.green  { color: var(--green); }
 
 	@media (max-width: 900px) {
-		.sd-grid { grid-template-columns: 1fr; gap: 40px; }
+		.sd-grid { grid-template-columns: 1fr; column-gap: 0; }
+		.sd-tag { margin-bottom: var(--space-3); }
+		.pipeline-wrap, .engage-card { margin-top: 32px; }
 		.pipeline-steps { flex-direction: column; }
 		.ps-arrow { transform: rotate(90deg); width: 100%; height: 16px; }
 	}
