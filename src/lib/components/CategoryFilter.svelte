@@ -1,5 +1,5 @@
 <script>
-	let { categories, active = 'all' } = $props();
+	let { categories, active = $bindable('all') } = $props();
 </script>
 
 <div class="filter-bar">

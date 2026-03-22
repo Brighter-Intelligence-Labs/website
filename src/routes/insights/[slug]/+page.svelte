@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	let { data } = $props();
 
 	const formattedDate = new Date(data.meta.date).toLocaleDateString('en-GB', {
@@ -6,6 +6,25 @@
 		month: 'long',
 		year: 'numeric'
 	});
+
+	// Simple markdown-to-HTML renderer for article content stored in Supabase
+	function renderMarkdown(md: string) {
+		return md
+			.replace(/&/g, '&amp;')
+			.replace(/</g, '&lt;')
+			.replace(/>/g, '&gt;')
+			.replace(/^### (.+)$/gm, '<h3>$1</h3>')
+			.replace(/^## (.+)$/gm, '<h2>$1</h2>')
+			.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+			.replace(/\*(.+?)\*/g, '<em>$1</em>')
+			.replace(/`([^`]+)`/g, '<code>$1</code>')
+			.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>')
+			.replace(/\n\n/g, '</p><p>')
+			.replace(/^/, '<p>')
+			.replace(/$/, '</p>')
+			.replace(/<p><h([23])>/g, '<h$1>')
+			.replace(/<\/h([23])><\/p>/g, '</h$1>');
+	}
 </script>
 
 <svelte:head>
@@ -30,7 +49,7 @@
 			</div>
 		</header>
 		<div class="prose article-body">
-			<data.content />
+			{@html renderMarkdown(data.articleContent)}
 		</div>
 	</div>
 </article>

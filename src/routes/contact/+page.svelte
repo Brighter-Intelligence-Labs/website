@@ -1,3 +1,42 @@
+<script lang="ts">
+	let formStatus = $state('idle');
+	let formError = $state('');
+
+	async function handleSubmit(e: SubmitEvent) {
+		e.preventDefault();
+		formStatus = 'loading';
+		formError = '';
+
+		const form = e.target as HTMLFormElement;
+		const data = new FormData(form);
+
+		try {
+			const res = await fetch('/api/contact', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({
+					name: data.get('name'),
+					email: data.get('email'),
+					company: data.get('company'),
+					message: data.get('message')
+				})
+			});
+
+			if (res.ok) {
+				formStatus = 'success';
+				form.reset();
+			} else {
+				const err = await res.json();
+				formError = err.error || 'Something went wrong.';
+				formStatus = 'error';
+			}
+		} catch {
+			formError = 'Network error. Please try again.';
+			formStatus = 'error';
+		}
+	}
+</script>
+
 <svelte:head>
 	<title>Contact — Brighter Intelligence Labs</title>
 	<meta name="description" content="Book a free 30-minute discovery call. We'll discuss your workflows, challenges, and whether a bespoke AI system makes sense for your business." />
@@ -42,34 +81,41 @@
 			</div>
 		</div>
 
-		<div>
-			<form class="contact-form" method="POST" action="https://formspree.io/f/placeholder">
-				<div class="form-row">
-					<div class="field">
-						<label for="name">Name</label>
-						<input type="text" id="name" name="name" placeholder="Your name" required />
+			<div class="contact-form-wrapper">
+				{#if formStatus === 'success'}
+					<div class="success-message">
+						<h3>Message sent</h3>
+						<p>Thanks for reaching out. We'll get back to you within 24 hours.</p>
 					</div>
-					<div class="field">
-						<label for="email">Email</label>
-						<input type="email" id="email" name="email" placeholder="you@company.com" required />
-					</div>
-				</div>
-				<div class="field">
-					<label for="company">Company</label>
-					<input type="text" id="company" name="company" placeholder="Company name" />
-				</div>
-				<div class="field">
-					<label for="message">Tell us about your project</label>
-					<textarea id="message" name="message" placeholder="Describe your workflows, current challenges, and what you're hoping to achieve…"></textarea>
-				</div>
-				<div>
-					<button type="submit" class="btn-submit">Send Message</button>
-				</div>
-				<p class="form-subtext">We typically respond within one business day.</p>
-			</form>
+				{:else}
+					<form class="contact-form" onsubmit={handleSubmit}>
+						<div class="form-group">
+							<label for="name">Name</label>
+							<input type="text" id="name" name="name" required />
+						</div>
+						<div class="form-group">
+							<label for="email">Email</label>
+							<input type="email" id="email" name="email" required />
+						</div>
+						<div class="form-group">
+							<label for="company">Company</label>
+							<input type="text" id="company" name="company" />
+						</div>
+						<div class="form-group">
+							<label for="message">Tell us about your project</label>
+							<textarea id="message" name="message" rows="5" placeholder="What workflows are you looking to automate? What challenges are you facing?"></textarea>
+						</div>
+						{#if formError}
+							<p class="form-error">{formError}</p>
+						{/if}
+						<button type="submit" class="btn-primary" disabled={formStatus === 'loading'}>
+							{formStatus === 'loading' ? 'Sending...' : 'Send Message'}
+						</button>
+					</form>
+				{/if}
+			</div>
 		</div>
-	</div>
-</section>
+	</section>
 
 <style>
 	.contact-header {
@@ -231,8 +277,33 @@
 		text-align: center;
 	}
 
-	@media (max-width: 900px) {
-		.contact-grid { grid-template-columns: 1fr; gap: 40px; }
-		.form-row { grid-template-columns: 1fr; }
+	.form-error {
+		color: #b91c1c;
+		font-size: var(--text-sm);
+		margin-bottom: var(--space-3);
+	}
+
+	.success-message {
+		background: var(--surface);
+		border: 1px solid var(--border);
+		border-radius: var(--radius-lg);
+		padding: var(--space-8);
+		text-align: center;
+	}
+
+	.success-message h3 {
+		color: #059669;
+		margin-bottom: var(--space-2);
+	}
+
+	button:disabled {
+		opacity: 0.5;
+		cursor: not-allowed;
+	}
+
+	@media (max-width: 768px) {
+		.contact-grid {
+			grid-template-columns: 1fr;
+		}
 	}
 </style>
