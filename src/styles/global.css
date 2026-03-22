@@ -10,8 +10,20 @@
 	--text-muted:  #9e9892;
 	--accent:      #c85a2a;
 	--accent-light:#f2e8e2;
+	--acl:         #fdeee6;
+	--acb:         #f0c4a8;
+	--green:       #2d7a52;
+	--grl:         #e4f2ea;
+	--grb:         #c0deca;
+	--body:        #6b6560;
+	--dim:         #b0aaa4;
 	--black:       #111111;
 	--white:       #faf9f7;
+
+	/* Shorthand aliases (used by new components) */
+	--fd: 'DM Serif Display', Georgia, serif;
+	--fb: 'DM Sans', system-ui, sans-serif;
+	--sp: clamp(48px,7vw,96px) clamp(28px,6vw,80px);
 
 	/* Typography */
 	--font-display: 'DM Serif Display', Georgia, serif;
@@ -64,6 +76,64 @@
 	--section-padding-x: clamp(24px, 6vw, 80px);
 }
 
+/* ── Dark mode — system preference ── */
+@media (prefers-color-scheme: dark) {
+	:root:not([data-theme="light"]) {
+		--bg:             #0e0e0f;
+		--surface:        #141415;
+		--surface-2:      #1e1e1f;
+		--border:         rgba(255,255,255,0.07);
+		--border-light:   rgba(255,255,255,0.04);
+		--text-primary:   #f0ece6;
+		--text-secondary: rgba(240,236,230,0.6);
+		--text-muted:     rgba(240,236,230,0.4);
+		--accent-light:   rgba(200,90,42,0.15);
+		--acl:            rgba(200,90,42,0.12);
+		--acb:            rgba(200,90,42,0.25);
+		--green:          #2d7a52;
+		--grl:            rgba(45,122,82,0.12);
+		--grb:            rgba(45,122,82,0.25);
+		--body:           rgba(240,236,230,0.55);
+		--dim:            rgba(240,236,230,0.25);
+		--white:          #111110;
+		--black:          #f0ece6;
+		color-scheme: dark;
+	}
+}
+
+/* ── Manual dark override ── */
+:root[data-theme="dark"] {
+	--bg:             #0e0e0f;
+	--surface:        #141415;
+	--surface-2:      #1e1e1f;
+	--border:         rgba(255,255,255,0.07);
+	--border-light:   rgba(255,255,255,0.04);
+	--text-primary:   #f0ece6;
+	--text-secondary: rgba(240,236,230,0.6);
+	--text-muted:     rgba(240,236,230,0.4);
+	--accent-light:   rgba(200,90,42,0.15);
+	--acl:            rgba(200,90,42,0.12);
+	--acb:            rgba(200,90,42,0.25);
+	--green:          #2d7a52;
+	--grl:            rgba(45,122,82,0.12);
+	--grb:            rgba(45,122,82,0.25);
+	--body:           rgba(240,236,230,0.55);
+	--dim:            rgba(240,236,230,0.25);
+	--white:          #111110;
+	--black:          #f0ece6;
+	color-scheme: dark;
+}
+
+/* ── Manual light override ── */
+:root[data-theme="light"] {
+	--bg:       #f7f4f0;
+	--surface:  #faf9f7;
+	--border:   #e2ddd8;
+	--text-primary: #1a1a1a;
+	--text-muted:   #9e9892;
+	color-scheme: light;
+}
+
 *,
 *::before,
 *::after {
@@ -96,7 +166,7 @@ h1, h2 {
 }
 
 h1 {
-	font-size: clamp(36px, 5vw, 60px);
+	font-size: clamp(30px, 3.5vw, 44px);
 	line-height: 1.1;
 	max-width: 20ch;
 }
@@ -271,6 +341,10 @@ pre code {
 	color: var(--accent);
 	margin-bottom: var(--space-3);
 }
+
+/* Animations */
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+@keyframes stepReveal { from { opacity:0; transform:translateY(4px); } to { opacity:1; transform:translateY(0); } }
 
 /* Tag */
 .tag {

@@ -1,7 +1,9 @@
 <script>
 	import Hero from '$lib/components/Hero.svelte';
-	import ServiceCard from '$lib/components/ServiceCard.svelte';
-	import ArticleCard from '$lib/components/ArticleCard.svelte';
+	import GapSection from '$lib/components/GapSection.svelte';
+	import ServiceCards from '$lib/components/ServiceCards.svelte';
+	import Differentiators from '$lib/components/Differentiators.svelte';
+	import InsightsPreview from '$lib/components/InsightsPreview.svelte';
 	import CtaBlock from '$lib/components/CtaBlock.svelte';
 	import ChatContainer from '$lib/components/chat/ChatContainer.svelte';
 
@@ -16,6 +18,9 @@
 </svelte:head>
 
 <Hero />
+<GapSection />
+<ServiceCards />
+<Differentiators />
 
 <!-- Chat Section -->
 <section class="section section-alt">
@@ -105,26 +110,7 @@
 
 <!-- Latest Insights -->
 {#if data.articles.length > 0}
-<section class="section section-alt">
-	<div class="container">
-		<div class="section-title-block">
-			<div class="eyebrow">Insights</div>
-			<h2>Latest thinking</h2>
-		</div>
-		<div class="insights-grid">
-			{#each data.articles.slice(0, 3) as article}
-				<ArticleCard
-					title={article.meta.title}
-					excerpt={article.meta.excerpt}
-					category={article.meta.category}
-					date={article.meta.date}
-					readTime={article.meta.readTime}
-					slug={article.meta.slug}
-				/>
-			{/each}
-		</div>
-	</div>
-</section>
+	<InsightsPreview articles={data.articles} />
 {/if}
 
 <CtaBlock />

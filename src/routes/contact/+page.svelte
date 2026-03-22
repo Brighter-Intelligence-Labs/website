@@ -44,28 +44,42 @@
 
 <section class="section">
 	<div class="container">
-		<div class="contact-grid">
-			<div class="contact-content">
-				<div class="eyebrow">Get in touch</div>
-				<h1>Let's talk</h1>
-				<p class="contact-lead">
-					Book a free 30-minute discovery call. We'll discuss your workflows, challenges, and whether a bespoke AI system makes sense for your business.
-				</p>
-				<p class="contact-note">
-					No sales pitch. No obligation. Just a focused conversation about your specific situation.
-				</p>
+		<div class="contact-header">
+			<div class="eyebrow">Get in touch</div>
+			<h1>Let's talk</h1>
+			<p class="contact-lead">Book a free 30-minute discovery call. No sales pitch. No obligation. Just a focused conversation about your specific situation.</p>
+		</div>
+	</div>
+</section>
 
-				<div class="contact-details">
-					<h3>What to expect</h3>
-					<ul>
-						<li>A 30-minute call with a senior engineer</li>
-						<li>We'll ask about your current workflows and pain points</li>
-						<li>We'll share relevant examples from similar domains</li>
-						<li>If there's a fit, we'll propose a scoping engagement</li>
-						<li>If there isn't, we'll tell you honestly</li>
-					</ul>
+<section class="contact-body">
+	<div class="contact-grid">
+		<div>
+			<div class="eyebrow" style="margin-bottom:10px">What to expect</div>
+			<p class="expect-lead">A 30-minute call with a senior engineer, not a sales rep. We'll focus entirely on your situation.</p>
+			<div class="expect-list">
+				<div class="expect-item">
+					<span class="expect-num">01</span>
+					<span class="expect-text">A 30-minute call with a senior engineer</span>
+				</div>
+				<div class="expect-item">
+					<span class="expect-num">02</span>
+					<span class="expect-text">We'll ask about your current workflows and pain points</span>
+				</div>
+				<div class="expect-item">
+					<span class="expect-num">03</span>
+					<span class="expect-text">We'll share relevant examples from similar domains</span>
+				</div>
+				<div class="expect-item">
+					<span class="expect-num">04</span>
+					<span class="expect-text">If there's a fit, we'll propose a scoping engagement</span>
+				</div>
+				<div class="expect-item">
+					<span class="expect-num">05</span>
+					<span class="expect-text">If there isn't, we'll tell you honestly</span>
 				</div>
 			</div>
+		</div>
 
 			<div class="contact-form-wrapper">
 				{#if formStatus === 'success'}
@@ -105,104 +119,163 @@
 </section>
 
 <style>
-	.contact-grid {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: var(--space-16);
-		align-items: start;
+	.contact-header {
+		max-width: 640px;
 	}
 
-	.contact-content h1 {
+	.contact-header h1 {
 		margin-bottom: var(--space-4);
 	}
 
 	.contact-lead {
-		font-size: var(--text-base);
-		color: var(--text-primary);
-		font-weight: 400;
-		line-height: 1.5;
-		margin-bottom: var(--space-3);
-		max-width: 480px;
+		font-size: 15px;
+		font-weight: 300;
+		color: var(--body);
+		line-height: 1.72;
+		max-width: 560px;
 	}
 
-	.contact-note {
-		color: var(--text-muted);
-		font-size: var(--text-sm);
-		font-weight: 400;
-		margin-bottom: var(--space-10);
-	}
-
-	.contact-details h3 {
-		font-size: var(--text-lg);
-		margin-bottom: var(--space-4);
-	}
-
-	.contact-details ul {
-		list-style: none;
-		padding: 0;
-	}
-
-	.contact-details li {
-		padding: var(--space-2) 0;
-		padding-left: var(--space-5);
-		position: relative;
-		color: var(--text-primary);
-		font-size: var(--text-sm);
-		font-weight: 400;
-	}
-
-	.contact-details li::before {
-		content: '';
-		position: absolute;
-		left: 0;
-		top: 13px;
-		width: 6px;
-		height: 6px;
-		background: var(--accent);
-		border-radius: 50%;
-	}
-
-	.contact-form {
+	.contact-body {
+		padding: var(--sp);
 		background: var(--surface);
-		border: 1px solid var(--border);
-		border-radius: var(--radius-lg);
-		padding: var(--space-8);
 	}
 
-	.form-group {
-		margin-bottom: var(--space-5);
+	.contact-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 80px;
+		align-items: start;
 	}
 
-	label {
-		display: block;
-		font-family: var(--font-body);
-		font-size: var(--text-sm);
+	.eyebrow {
+		font-size: 11px;
+		font-weight: 600;
+		letter-spacing: 0.14em;
+		text-transform: uppercase;
+		color: var(--accent);
+		margin-bottom: 14px;
+	}
+
+	.expect-lead {
+		font-size: 14px;
+		font-weight: 300;
+		color: var(--body);
+		line-height: 1.72;
+		margin-bottom: 24px;
+	}
+
+	.expect-list {
+		display: flex;
+		flex-direction: column;
+		gap: 0;
+		border: 0.5px solid var(--border);
+		border-radius: 10px;
+		overflow: hidden;
+	}
+
+	.expect-item {
+		display: flex;
+		align-items: baseline;
+		gap: 14px;
+		padding: 16px 18px;
+		border-bottom: 0.5px solid var(--border);
+		background: var(--surface);
+	}
+
+	.expect-item:last-child { border-bottom: none; }
+
+	.expect-num {
+		font-size: 11px;
+		font-weight: 600;
+		letter-spacing: 0.06em;
+		color: var(--accent);
+		flex-shrink: 0;
+		width: 20px;
+	}
+
+	.expect-text {
+		font-size: 13px;
+		font-weight: 300;
+		color: var(--body);
+		line-height: 1.5;
+	}
+
+	/* Form */
+	.contact-form {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+	}
+
+	.form-row {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 12px;
+	}
+
+	.field {
+		display: flex;
+		flex-direction: column;
+		gap: 6px;
+	}
+
+	.field label {
+		font-size: 11px;
 		font-weight: 500;
-		margin-bottom: var(--space-2);
-		color: var(--text-primary);
+		letter-spacing: 0.04em;
+		color: var(--text-muted);
+		text-transform: uppercase;
 	}
 
-	input,
-	textarea {
-		width: 100%;
-		padding: var(--space-3) var(--space-4);
-		font-family: var(--font-body);
-		font-size: var(--text-base);
-		border: 1px solid var(--border);
-		border-radius: var(--radius);
-		background: var(--bg);
+	.field input,
+	.field textarea {
+		background: var(--surface);
+		border: 0.5px solid var(--border);
+		border-radius: 5px;
+		padding: 10px 14px;
+		font-size: 13px;
+		font-weight: 300;
 		color: var(--text-primary);
-		transition: border-color 0.15s ease;
-	}
-
-	input:focus,
-	textarea:focus {
+		font-family: var(--fb);
 		outline: none;
-		border-color: var(--text-secondary);
+		transition: border-color 0.18s;
+		width: 100%;
 	}
 
-	textarea {
+	.field input:focus,
+	.field textarea:focus {
+		border-color: var(--accent);
+		box-shadow: 0 0 0 2px rgba(200,90,42,0.08);
+	}
+
+	.field textarea {
 		resize: vertical;
+		min-height: 120px;
+		line-height: 1.6;
+	}
+
+	.btn-submit {
+		width: 100%;
+		text-align: center;
+		padding: 13px;
+		font-size: 13px;
+		font-weight: 500;
+		color: var(--surface);
+		background: var(--text-primary);
+		border: none;
+		border-radius: 4px;
+		cursor: pointer;
+		font-family: var(--fb);
+		letter-spacing: -0.01em;
+		transition: opacity 0.15s;
+	}
+
+	.btn-submit:hover { opacity: 0.85; }
+
+	.form-subtext {
+		font-size: 11px;
+		color: var(--text-muted);
+		text-align: center;
 	}
 
 	.form-error {
