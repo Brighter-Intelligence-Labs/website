@@ -115,8 +115,7 @@
 				{/if}
 			</div>
 		</div>
-	</div>
-</section>
+	</section>
 
 <style>
 	.contact-header {
